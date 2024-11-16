@@ -1,3 +1,7 @@
+**Note: This is the Mosaic Fork for Shapelets. This branch incorporates the changes from version v0.10.0.**
+
+**Changelog**: Replaced HTML components in Mosaic Inputs with Ant Design components: Menu, Search, Slider, and Table.
+
 # Mosaic: An Extensible Framework for Linking Databases and Interactive Views
 
 * 📈 **Explore massive datasets**<br/>
