@@ -1,6 +1,6 @@
 {
   "name": "@uwdata/vgplot",
-  "version": "0.10.0",
+  "version": "0.10.0-shapelets",
   "description": "An API for interactive Mosaic-powered visualizations and dashboards.",
   "keywords": [
     "data",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@uwdata/mosaic-core": "^0.10.0",
-    "@uwdata/mosaic-inputs": "^0.10.0",
+    "@uwdata/mosaic-inputs": "^0.10.0-shapelets",
     "@uwdata/mosaic-plot": "^0.10.0",
     "@uwdata/mosaic-sql": "^0.10.0"
   }
