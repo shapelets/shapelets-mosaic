@@ -1,7 +1,7 @@
 import {clauseInterval, clausePoint, isParam, isSelection, MosaicClient, Param} from '@uwdata/mosaic-core';
 import {max, min, Query} from '@uwdata/mosaic-sql';
 import {input} from './input.js';
-import {Slider as AntSlider, Space, Typography} from 'antd';
+import {Slider as AntSlider, Flex, Space, Typography} from 'antd';
 import ReactDOM from "react-dom/client";
 import * as React from "react";
 
@@ -18,34 +18,33 @@ const ShapeletsSlider = ({range, key, value, label, width, min, max, step, onAct
     };
 
     return (
-        <>
-            <Space direction="vertical" style={{width: "100%"}}>
-                <Typography level={5}>{label}</Typography>
+            <Space size='small' direction="horizontal" style={{marginRight: '8px', rowGap: 0}}>
+                <Typography.Text strong>{label}</Typography.Text>
                 {range ? (
                     <AntSlider
                         range
+                        keyboard
                         key={key}
                         value={componentValue}
                         min={min}
                         max={max}
                         step={step}
-                        style={{width: width}}
+                        style={{width: width ?? 100}}
                         onChange={handleChange}
                     />
                 ) : (
                     <AntSlider
                         key={key}
+                        keyboard
                         value={componentValue}
                         min={min}
                         max={max}
                         step={step}
-                        style={{width: width}}
+                        style={{width: width ?? 100}}
                         onChange={handleChange}
                     />
                 )}
             </Space>
-        </>
-
     );
 };
 
@@ -118,7 +117,7 @@ export class Slider extends MosaicClient {
             key={this.id}
             value={this.value}
             label={label}
-            width={`${+width}px`}
+            width={`${width??100}px`}
             min={this.min}
             max={this.max}
             step={this.step}

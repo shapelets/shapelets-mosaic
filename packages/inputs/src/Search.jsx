@@ -31,8 +31,8 @@ const ShapeletsSearch = ({key, label, options, value, onAction, onSearch}) => {
     };
 
     return (
-        <Space direction="vertical" style={{width: "100%"}}>
-            <Typography level={5}>{label}</Typography>
+        <Space size='small' direction="horizontal" style={{marginRight: '8px', rowGap: 0}}>
+            <Typography.Text strong>{label}</Typography.Text>
             <AntSelect
                 key={key}
                 value={componentValue}
@@ -44,6 +44,7 @@ const ShapeletsSearch = ({key, label, options, value, onAction, onSearch}) => {
                 filterOption={false}
                 allowClear={true}
                 suffixIcon={null}
+                style={{minWidth: 150}}
                 placeholder='Query'
             />
         </Space>

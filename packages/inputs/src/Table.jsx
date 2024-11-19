@@ -3,7 +3,7 @@ import {column, desc, Query} from '@uwdata/mosaic-sql';
 import {input} from './input.js';
 import * as React from "react";
 import ReactDOM from 'react-dom/client';
-import {Space, Table as AntTable} from 'antd';
+import {Space, Table as AntTable, Typography} from 'antd';
 
 let _id = -1;
 
@@ -90,27 +90,30 @@ const ShapeletsTable = ({key, columns, data, onAction, loaded, maxWidth, maxHeig
     };
 
     return (
-        <Space direction="vertical" style={{width: "100%"}}>
-            <AntTable
-                key={key}
-                bordered={true}
-                showHeader={true}
-                size={'small'}
-                columns={columns}
-                dataSource={tableData}
-                scroll={{
-                    x: 'max-content',
-                    y: 50 * 5,
-                }}
-                pagination={false}
-                onScroll={handleOnScroll}
-                style={{
-                    maxWidth: maxWidth,
-                    maxHeight: maxHeight,
-                }}
-                onChange={handleSorting}
-            />
-        </Space>
+        <Typography>
+                <Space size='small' direction="horizontal" style={{marginRight: '8px', rowGap: 0}}>
+                    <AntTable
+                        key={key}
+                        bordered={true}
+                        showHeader={true}
+                        size={'small'}
+                        columns={columns}
+                        dataSource={tableData}
+                        scroll={{
+                            x: 'max-content',
+                            y: 50 * 5,
+                        }}
+                        pagination={false}
+                        onScroll={handleOnScroll}
+                        style={{
+                            maxWidth: maxWidth,
+                            maxHeight: maxHeight,
+                        }}
+                        tableLayout='fixed'
+                        onChange={handleSorting}
+                        showSorterTooltip={{ target: 'sorter-icon' }}/>
+            </Space>
+        </Typography>        
     );
 };
 
@@ -176,15 +179,18 @@ export class Table extends MosaicClient {
     fieldInfo(info) {
         this.schema = info;
         this.future = createFuture()
-        this.columns_final = info.map(item => ({
-            title: item.column,
-            dataIndex: item.column,
-            key: item.column,
-            width: this.widths[item.column] || 100,
-            align: this.align[item.column] || 'left',
-            // Set sorter so the icons are shown.
-            sorter: (a, b) => null,
-        }));
+        this.columns_final = info.map(item => {
+            const tpe = item.type;
+            return ({
+                title: item.column,
+                dataIndex: item.column,
+                key: item.column,
+                width: this.widths[item.column] || 100,
+                align: this.align[item.column] || tpe === 'number' ? 'right' : 'left',
+                // Set sorter so the icons are shown.
+                sorter: true
+            });
+        });
         this.root.render(<ShapeletsTable
             key={this.id}
             columns={this.columns_final}

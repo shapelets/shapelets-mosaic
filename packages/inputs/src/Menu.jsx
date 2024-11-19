@@ -20,9 +20,11 @@ const ShapeletsSelect = ({label, options, value, onAction}) => {
     };
 
     return (
-        <Space direction="vertical" style={{width: "100%"}}>
-            <Typography level={5}>{label}</Typography>
+        <Space size='small' direction="horizontal" style={{marginRight: '8px', rowGap: 0}}>
+            <Typography.Text strong>{label}</Typography.Text>
             <AntSelect
+                style={{minWidth: 150}}
+                popupMatchSelectWidth={false}
                 value={componentValue}
                 options={options}
                 showSearch
