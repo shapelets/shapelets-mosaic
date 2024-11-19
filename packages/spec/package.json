@@ -1,6 +1,6 @@
 {
   "name": "@uwdata/mosaic-spec",
-  "version": "0.10.1-shapelets",
+  "version": "0.10.2-shapelets",
   "description": "Declarative specification of Mosaic-powered applications.",
   "keywords": [
     "mosaic",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@uwdata/mosaic-core": "^0.10.0",
     "@uwdata/mosaic-sql": "^0.10.0",
-    "@uwdata/vgplot": "^0.10.0-shapelets",
+    "@uwdata/vgplot": "^0.10.2-shapelets",
     "ts-json-schema-generator": "^2.3.0"
   }
 }

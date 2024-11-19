@@ -1,6 +1,6 @@
 {
   "name": "@uwdata/mosaic-inputs",
-  "version": "0.10.1-shapelets",
+  "version": "0.10.2-shapelets",
   "description": "Mosaic input components.",
   "keywords": [
     "inputs",
