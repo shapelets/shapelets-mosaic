@@ -1,6 +1,6 @@
 {
   "name": "@uwdata/mosaic-spec",
-  "version": "0.10.0-shapelets",
+  "version": "0.10.1-shapelets",
   "description": "Declarative specification of Mosaic-powered applications.",
   "keywords": [
     "mosaic",
